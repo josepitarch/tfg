@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  {% load fontawesome_5 %} 
+  <head>
+    {% load staticfiles %}
+    {% load static %}
+    {% fontawesome_5_static %} 
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Analytics Twitter - Home</title>
+    <link rel="icon" type="image/png" href="{% static '/icons/icon_3.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/chart/css/Chart.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="language text-right mr-2 mr-lg-0">
+        <div class="btn-group">
+          <button class="btn btn-primary dropdown-toggle" id="btn-language" data-toggle="dropdown">
+            Language
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btn-language">
+            <a href="{% url 'es' %}" class="dropdown-item text-white">
+              <img class="img-fluid mr-1" src="{% static '/icons/spain.png' %}" alt="">
+              Spanish</a>
+            </a>
+            <a href="#" class="dropdown-item text-white">
+              <img class="img-fluid mr-1" src="{% static '/icons/uk.png' %}" alt="">
+              English</a>
+          </div>
+        </div>
+      </div>
+      <div class="container d-flex flex-column">
+        <p class="masthead-heading align-self-center text-center mt-3 mt-lg-5">Do you want to know what is trending on Twitter?</p>
+        <p class="masthead-subheading text-muted align-self-center text-center mb-4 mb-lg-5">We show you the tweets, hashtags and users of the moment</p>
+        <form action="/hashtag/" method="GET" class="form-hashtag align-self-center mt-lg-5" id="form-hashtag">
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control font-italic" id="input-hashtag" placeholder="Are you interested in a specific hashtag?" name="hashtag">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-primary btn-lg" id="submit-hashtag"><i class="fas fa-search text-white"></i></button>
+            </div>
+          </div>
+          <input id="input-language" name="lang" type="hidden" value="en">
+        </form>
+        <div class="alert-input mt-3 d-flex flex-row justify-content-center"></div>
+      </div>
+    </header>
+    <main>
+      <div class="container-fluid mt-5">
+        <div class="row px-3 align-items-start">
+          <div class="col-12 col-lg-6">
+            <!--CHART DE LOS HASHTAGS-->
+            <h2 class="text-center">Some hashtags that are trending</h2>
+            <div class="chart-container">
+              <canvas id="chart-hashtags"></canvas>
+            </div>
+            <!--LISTADO DE LOS USUARIOS MÁS IMPORTANTES-->
+            <div class="mt-5">
+              <h3 class="text-center">People you might be interested in</h3>
+              <div class="row justify-content-md-around list-important-users"></div>
+            </div>
+          </div>
+          
+          <!--LISTADO DE TWEETS DEL MOMENTO-->
+          <div class="col-12 col-lg-6 media-object">
+            <h2 class="mb-4 mt-2 text-center">Tweets of the moment</h2>
+            <div class="media-group px-2" id="tweets-of-moment"></div>
+          </div>
+        </div>
+        
+        <!--ACTIVIDAD DE LOS TWEETS-->
+        <div class="row">
+          <div class="col-12 col-md-11 mx-auto">
+            <div class="activity-tweets mt-5">
+              <h3 class="text-center">Tweet activity</h3>
+              <div>
+                <button class="btn btn-primary ml-3" id="btn-per-days-tweets">
+                  For days
+                </button>
+                <button class="btn btn-primary ml-3" id="btn-per-hours-tweets">
+                  For hours
+                </button>
+                <hr>
+              </div>
+              <div class="chart-container days visible" id="days-tweets">
+                <canvas id="chart-activity-tweets-per-days"></canvas>
+              </div>
+              <div class="chart-container hours visible" id="hours-tweets">
+                <canvas id="chart-activity-tweets-per-hours"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--USUARIOS MÁS ACTIVOS Y SU ACTIVIDAD-->
+        <div class="row mt-3">
+          <div class="col-12 col-md-8">
+            <!--<div>
+              <button class="btn btn-primary ml-3" id="btn-per-days-for-user">
+                For days
+              </button>
+              <button class="btn btn-primary ml-3" id="btn-per-hours-for-user">
+                For hours
+              </button>
+              <hr>
+            </div>-->
+            <div class="chart-container days visible" id="days-users">
+              <canvas id="chart-activity-users-per-days"></canvas>
+            </div>
+            <div class="chart-container hours visible" id="hours-users">
+              <canvas id="chart-activity-users-per-hours"></canvas>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <h3 class="text-center">Most active people</h3>
+            <div class="row justify-content-md-around list-activity-users"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+   
+    <!--Bootstrap 4 Core-->
+    <script src="{% static '/jquery/jquery-3.5.0.min.js' %}"></script>
+    <script src="{% static '/popper/popper.min.js' %}"></script>
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--Chart.js Core-->
+    <script src="{% static '/chart/js/Chart.min.js' %}"></script>
+    <!--Load Data-->
+    <script src="{% static '/js/load_data_index.js' %}"></script>
+    <script src="{% static '/js/inner.js' %}"></script>
+    <!--Script JS-->
+    <script src="{% static '/js/script.js' %}"></script>
+  </body>
+</html>

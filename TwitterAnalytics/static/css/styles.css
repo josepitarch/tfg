@@ -1,0 +1,119 @@
+:root {
+    --azul: #007bff;
+    --azul-oscuro: #0069d9;
+}
+  
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f2f2f2;
+}
+
+.media-object {
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+.media-group {
+    overflow: auto;
+    height: 400px;
+}
+
+.media {
+/*border: 3px solid var(--azul-oscuro);*/
+    border-radius: 25px;
+    padding: 12px;
+}
+
+.media > img {
+    margin-top: 5px;
+    height: 40px;
+}
+
+.media-titulo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.media-subtitulo {
+    margin-top: -20px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.media-date {
+    margin-top: -17px;
+    font-size: 13px;
+}
+
+.media-body div {
+    margin-left: -60px;
+}
+
+.media-text {
+    font-size: 15px;
+    text-align: justify;
+}
+
+.media-img {
+    height: 200px;
+    width: 95%;
+}
+
+.media-operating-system {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.list-important-users  > div, 
+.list-activity-users > div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.list-important-users img.profile, 
+.list-activity-users img.profile {
+    height: 40px;
+}
+
+.list-important-users img.verified, 
+.list-activity-users img.verified {
+    height: 15px;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.list-important-users  p, 
+.list-activity-users p {
+    margin-top: 7px;
+}
+
+.list-important-users .followers, 
+.list-activity-users .followers {
+    font-size: 12px;
+    font-style: italic;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.activity-tweets {
+    background-color: white;
+    border-radius: 10px;
+}
+
+#chart-activity-tweets-per-days, 
+#chart-activity-tweets-per-hours, 
+#chart-activity-users-per-days,
+#chart-activity-users-per-hours {
+    height: 350px;
+    width: 350px;
+}
+
+.days, .hours {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

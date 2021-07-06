@@ -1,0 +1,130 @@
+.language {
+  padding: 10px 10px;
+}
+
+.language .dropdown-menu {
+  width: 40px;
+  margin-right: 55px;
+  background-color: var(--azul-oscuro);
+}
+
+.language .dropdown-item:hover {
+  background-color: var(--azul);
+}
+
+.language img {
+  height: 20px;
+}
+
+header.masthead {
+  height: 600px;
+  background-image: url("../images/header-bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+
+header .masthead-heading {
+  font-size: 21px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+header .masthead-subheading {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+form {
+  width: 100%;
+}
+
+form.form-hashtag input::placeholder {
+  font-size: 13px;
+}
+
+.suggestions {
+  width: 30%;
+  max-width: 30%;
+}
+
+#chart-hashtags {
+  height: 350px;
+  width: 350px;
+}
+
+@media screen and (min-width: 544px) {
+}
+
+@media screen and (min-width: 768px) {
+  header.masthead {
+    height: 400px;
+  }
+  
+  header .masthead-heading {
+    font-size: 35px;
+  }
+  
+  header .masthead-subheading {
+    font-size: 20px;
+  }
+
+  form.form-hashtag input::placeholder {
+    font-size: 18px;
+  }
+
+  #chart-hashtags {
+    height: 450px;
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  header.masthead {
+    height: 600px;
+  }
+  
+  header .masthead-heading {
+    font-size: 40px;
+  }
+  
+  header .masthead-subheading {
+    font-size: 25px;
+  }
+
+  form.form-hashtag input::placeholder {
+    font-size: 19px;
+  }
+
+  #chart-hashtags {
+    height: 450px;
+    width: 450px;
+  }
+
+  .media-object {
+    margin-top: -20px;
+  }
+
+  .media-group {
+    height: 1000px;
+  }
+
+  .media-date {
+    margin-top: -35px;
+  }
+
+  .media-body div {
+    margin-left: 0px;
+  }
+
+  .media-body img {
+    height: 250px;
+    width: 95%;
+  }
+
+  .list-important-users .followers {
+    margin-top: 10px;
+  }
+}

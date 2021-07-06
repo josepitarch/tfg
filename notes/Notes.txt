@@ -1,0 +1,39 @@
+<---------------BOOTSTRAP 4-------------->
+· El container es el contenedor principal, en él irán todas las filas y las columnas
+· El container es la raíz de donde parte todos los elementos de nuestras página
+· Las filas (row) son grupos horizontales de columnas
+· Todo el contenido debe ir dentro de columnas (col)
+· Las columnas deben ir obligatoriamente dentro de las filas (row)
+· Tabla de tamaños:
+
+      ·col      Extra Pequeño (Extra Small) - Smarthpones Vertical    Menos de 544px
+      ·col-sm   Pequeño (Small) - Smarthpones Vertical                Más de 544px y menos de 768px
+      ·col-md   Mediano (Medium) - Tablets                            Más de 768px y menos de 992px
+      ·col-lg   Largo (Large) - Computadoras                          Más de 992px y menos de 1200px
+      ·col-xl Extra Largo (Extra Large) - Computadoras                Más de 1200px
+
+      #Cada punto de la tabla significa a partir de estos px abarca el tamaño que se indique. Si no se indica nada
+      ocupa el máximo tamaño posible. Por ejemplo, si tenemos tres columnas y se pone col a la tres, todas ocuparán
+      4. Existe la clase col-auto que eso hará que la columna ocupe solo lo que el texto demande y no la división
+      entre el total de columnas. Se le puede explicar los tamaños --> col-sm-auto, col-lg-auto, etc.
+
+· Para quitar los margenes por defecto del container --> container-fluid
+· La class class="w-100" sirve como salto de línia
+· La etiqueta <hr> sirve como separador
+
+Alineación vertical
+· Las columnas por defecto cogen la altura del elemento padre, es decir, el row. Si la fila ocupa de altura 100px, las columnas
+  de esa fila tendrán 100px de altura si no se especifica nada.
+· Se puede especificar añadiendo a row la clase align-items-start y las columnas empezarán al inicio de la fila y la altura que ocuparán
+  será la que necesiten. align-items-center; align-items-end
+· Lo anterior afectaría a todas las columnas de esa row por igual. Si queremos actuar sobre una columna en concreto la opción sería
+  añadirle a esa col la clase align-self-start. align-self-center; align-self-end
+
+Alineación horizontal
+· Esto sirve para decir donde van las columnas hablando horizontalmente, es como la alineación del word para una fila.
+· Se añade a la row la clase justify-content-start, éste por ejemplo hace que empiecen desde la izquierda del todo a colocarse
+  las columnas. justify-content-center; justify-content-end
+
+Responsive Utilities
+· Ocultar/mostrar columnas dependiendo del tamaño de la pantalla. Se añade a la col d-tamaño-none para ocultar y d-tamaño-block para
+  mostrar. Por ejemplo, d-none ocultaría para todos y d-md-block mostraría desde ese tamaó hacia adelante.

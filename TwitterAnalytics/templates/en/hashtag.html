@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  {% load fontawesome_5 %} 
+  <head>
+    {% load staticfiles %}
+    {% load static %}
+    {% fontawesome_5_static %} 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>{{hashtag}} - Analytics Twitter</title>
+    <link rel="icon" type="image/png" href="{% static '/icons/analisis.png' %}">
+    
+    <link rel="stylesheet" href="{% static '/css/normalize.min.css' %}">
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/hashtag.css' %}">
+    
+  </head>
+  <body>
+    <header>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <p>Filtered hashtag</p>
+        <div class="line-horizontal"></div>
+        <p>{{hashtag}}</p>
+      </div>
+    </header>
+    <main>
+      <div class="container-fluid">
+        <!-- TWEETS Y USUARIOS IMPORTANTES DEL HASHTAG-->
+        <div class="row px-3">
+          <!-- LISTADO DE LOS TWEETS RELEVANTES DEL HASHTAG -->
+          <div class="col-lg-6 mt-3 media-object">
+            <h2 class="mb-4 mt-2 text-center">{{hashtag}} related tweets</h2>
+            <div class="media-group px-2" id="tweets-of-moment"></div>
+          </div>
+          <!-- LISTADO USUARIOS IMPORTANTES DEL HASHTAG -->
+          <div class="col-lg-6">
+            <h3 class="text-center">People related to {{hashtag}}</h3>
+            <div class="row justify-content-md-around list-important-users"></div>
+          </div>
+        </div>
+
+        <!--ACTIVIDAD DE LOS TWEETS DEL HASHTAG -->
+        <div class="row">
+          <div class="col-12 col-md-11 mx-auto">
+            <div class="activity-tweets mt-5">
+              <h3 class="text-center">Tweet activity</h3>
+              <div>
+                <button class="btn btn-primary ml-3" id="btn-per-days-tweets">
+                    For days
+                </button>
+                <button class="btn btn-primary ml-3" id="btn-per-hours-tweets">
+                    For hours
+                </button>
+                <hr>
+              </div>
+              <div class="chart-container days visible" id="days-tweets">
+                <canvas id="chart-activity-tweets-per-days"></canvas>
+              </div>
+              <div class="chart-container hours visible" id="hours-tweets">
+                <canvas id="chart-activity-tweets-per-hours"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--USUARIOS MÁS ACTIVOS Y SU ACTIVIDAD DEL HASHTAG -->
+        <div class="row mt-3 mt-lg-5">
+          <div class="col-12 col-md-8">
+            <!--<div>
+              <button class="btn btn-primary ml-3" id="btn-per-days-users">
+                Por días
+              </button>
+              <button class="btn btn-primary ml-3" id="btn-per-hours-users">
+                Por horas
+              </button>
+              <hr>
+            </div>-->
+            <div class="chart-container days visible" id="days-users">
+              <canvas id="chart-activity-users-per-days"></canvas>
+            </div>
+            <div class="chart-container hours visible" id="hours-users">
+              <canvas id="chart-activity-users-per-hours"></canvas>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <h3 class="text-center">Most active people</h3>
+            <div class="row justify-content-md-around list-activity-users"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--Bootstrap 4 Core-->
+    <script src="{% static '/jquery/jquery-3.5.0.min.js' %}"></script>
+    <script src="{% static '/popper/popper.min.js' %}"></script>
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--Chart JS Core-->
+    <script src="{% static '/chart/js/Chart.min.js' %}"></script>
+    <!--Load Data-->
+    <script src="{% static '/js/load_data_hashtag.js' %}"></script>
+    <script src="{% static '/js/inner.js' %}"></script>
+    <!--Script JS-->
+    <script src="{% static '/js/script.js' %}"></script>
+  </body>
+</html>
